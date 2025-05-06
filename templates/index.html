@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Address Book - Home{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Contacts</h1>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Phone Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.firstname }} {{ contact.lastname }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>{{ contact.phone_type }}</td>
+                <td>
+                    <a href="{{ url_for('edit_contact', id=contact.id) }}" class="btn btn-sm btn-primary">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="mt-3">
+    <a href="{{ url_for('add_contact') }}" class="btn btn-success">Add New Contact</a>
+</div>
+{% endblock %} 

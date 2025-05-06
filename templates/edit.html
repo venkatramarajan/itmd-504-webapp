@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Contact{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Edit Contact</h1>
+
+<form method="POST" class="needs-validation" novalidate>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" value="{{ contact.firstname }}" required>
+            <div class="invalid-feedback">
+                Please provide a first name.
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" value="{{ contact.lastname }}" required>
+            <div class="invalid-feedback">
+                Please provide a last name.
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ contact.email }}" required>
+        <div class="invalid-feedback">
+            Please provide a valid email.
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" name="phone" value="{{ contact.phone }}" required>
+            <div class="invalid-feedback">
+                Please provide a phone number.
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="phone_type" class="form-label">Phone Type</label>
+            <select class="form-select" id="phone_type" name="phone_type" required>
+                <option value="">Choose...</option>
+                <option value="home" {% if contact.phone_type == 'home' %}selected{% endif %}>Home</option>
+                <option value="work" {% if contact.phone_type == 'work' %}selected{% endif %}>Work</option>
+                <option value="mobile" {% if contact.phone_type == 'mobile' %}selected{% endif %}>Mobile</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a phone type.
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Update Contact</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+<script>
+// Form validation
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+</script>
+{% endblock %} 

@@ -1,0 +1,5 @@
+[database]
+db_name = addressbook
+db_user = addressbook_user
+db_password = your_password_here
+db_host = localhost 
