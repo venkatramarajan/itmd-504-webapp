@@ -5,7 +5,7 @@ This document provides detailed information about the Address Book API endpoints
 ## Base URL
 
 ```
-http://itmd504-webapp.vrraajan.com
+https://itmd504-webapp.vrraajan.com
 ```
 
 ## Authentication
@@ -29,7 +29,7 @@ Retrieves a list of contacts with filtering, sorting, and pagination options.
 
 **Example Request:**
 ```bash
-curl "http://itmd504-webapp.vrraajan.com/api/contacts?search=john&phone_type=mobile&sort_by=lastname&sort_order=desc&page=1&per_page=5"
+curl "https://itmd504-webapp.vrraajan.com/api/contacts?search=john&phone_type=mobile&sort_by=lastname&sort_order=desc&page=1&per_page=5"
 ```
 
 **Example Response:**
@@ -65,7 +65,7 @@ Retrieves a specific contact by ID.
 
 **Example Request:**
 ```bash
-curl "http://itmd504-webapp.vrraajan.com/api/contacts/1"
+curl "https://itmd504-webapp.vrraajan.com/api/contacts/1"
 ```
 
 **Example Response:**
@@ -99,7 +99,7 @@ Creates a new contact.
 
 **Example Request:**
 ```bash
-curl -X POST http://itmd504-webapp.vrraajan.com/api/contacts \
+curl -X POST https://itmd504-webapp.vrraajan.com/api/contacts \
   -H "Content-Type: application/json" \
   -d '{
     "firstname": "John",
@@ -144,7 +144,7 @@ Updates an existing contact.
 
 **Example Request:**
 ```bash
-curl -X PUT http://itmd504-webapp.vrraajan.com/api/contacts/1 \
+curl -X PUT https://itmd504-webapp.vrraajan.com/api/contacts/1 \
   -H "Content-Type: application/json" \
   -d '{
     "phone": "555-9999"
@@ -174,7 +174,7 @@ Deletes a contact.
 
 **Example Request:**
 ```bash
-curl -X DELETE http://itmd504-webapp.vrraajan.com/api/contacts/1
+curl -X DELETE https://itmd504-webapp.vrraajan.com/api/contacts/1
 ```
 
 **Example Response:**
